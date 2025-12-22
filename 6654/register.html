@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - F17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-f">F</span><span class="logo-num">17</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="#" class="nav-link">CLOTHING</a>
+                <a href="#" class="nav-link">MEN</a>
+                <a href="#" class="nav-link">WOMEN</a>
+                <a href="#" class="nav-link">ABOUT</a>
+                <a href="#" class="nav-link">FAQ</a>
+                <a href="#" class="nav-link">CONTACT</a>
+                <a href="#" class="nav-link">WISHLIST</a>
+                <a href="#" class="nav-link">BASKET</a>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" class="icon-btn" title="Login">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5.338 18.846C6.13 16.155 8.82 14 12 14s5.87 2.155 6.662 4.846a1 1 0 0 1-.961 1.154H6.3a1 1 0 0 1-.962-1.154Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#" class="icon-btn cart-btn" title="Cart">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Form -->
+    <main class="auth-container">
+        <div class="auth-box auth-box-wide">
+            <!-- Header -->
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <div class="divider"></div>
+                <p>Join us for exclusive access to new collections</p>
+            </div>
+
+            <!-- Form -->
+            <form class="auth-form" id="registerForm" onsubmit="return handleRegister(event)">
+                <!-- First Name & Last Name -->
+                <div class="form-row-grid">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName"
+                            placeholder="John"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName"
+                            placeholder="Doe"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password"
+                        placeholder="Create a password"
+                        minlength="8"
+                        required
+                    >
+                    <p class="input-hint">Must be at least 8 characters long</p>
+                    <p class="error-message" id="passwordError"></p>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+                    <p class="error-message" id="confirmPasswordError"></p>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="form-checkboxes">
+                    <label class="checkbox-label checkbox-label-wrap">
+                        <input type="checkbox" name="agreeToTerms" id="agreeToTerms" required>
+                        <span>I agree to the <a href="#" class="link-primary">Terms and Conditions</a> and <a href="#" class="link-primary">Privacy Policy</a></span>
+                    </label>
+                    <p class="error-message" id="termsError"></p>
+
+                    <label class="checkbox-label checkbox-label-wrap">
+                        <input type="checkbox" name="subscribeNewsletter">
+                        <span>Subscribe to our newsletter for updates on new collections</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+
+            <!-- Divider -->
+            <div class="divider-text">
+                <span>or</span>
+            </div>
+
+            <!-- Sign In Link -->
+            <p class="auth-footer">
+                Already have an account? 
+                <a href="login.html" class="link-primary link-bold">Sign In</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>About F17</h3>
+                <div class="divider"></div>
+                <p>Modern clothing designed for timeless style and sustainable practices. We believe in quality over quantity.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <div class="divider"></div>
+                <ul>
+                    <li><a href="#">Women's Collection</a></li>
+                    <li><a href="#">Men's Collection</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Seasonal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <div class="divider"></div>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <div class="divider"></div>
+                <p>Subscribe to receive updates on new collections and special promotions.</p>
+                <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 F17. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

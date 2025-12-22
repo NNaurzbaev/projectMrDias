@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Oversized Shirt - F17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .logo .f {
+            color: #1a1a1a;
+        }
+
+        .logo .num {
+            color: #c24c4c;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c24c4c;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-link {
+            color: #1a1a1a;
+            font-size: 16px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .icon-link:hover {
+            color: #c24c4c;
+        }
+
+        .basket-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #c24c4c;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Content */
+        .product-container {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Product Images */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 12px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: #c24c4c;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Info */
+        .product-info {
+            padding-top: 20px;
+        }
+
+        .product-info h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .vendor {
+            color: #8d8d8d;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c24c4c;
+            margin-bottom: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: #F5B301;
+            font-size: 14px;
+        }
+
+        .stars .far {
+            color: #F5B301;
+        }
+
+        .review-count {
+            color: #8d8d8d;
+            font-size: 14px;
+        }
+
+        .description {
+            color: #1a1a1a;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Size Selection */
+        .size-section {
+            margin-bottom: 30px;
+        }
+
+        .size-section label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-option {
+            padding: 10px 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13.33px;
+            transition: all 0.3s;
+        }
+
+        .size-option:hover {
+            border-color: #c24c4c;
+        }
+
+        .size-option.active {
+            background: #c24c4c;
+            color: white;
+            border-color: #c24c4c;
+        }
+
+        /* Product Actions */
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            background: white;
+            height: 55px;
+        }
+
+        .qty-btn {
+            padding: 0 15px;
+            background: #f0f0f0;
+            border: 2px solid black;
+            cursor: pointer;
+            font-size: 16px;
+            height: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .qty-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .qty-input {
+            width: 60px;
+            text-align: center;
+            border: none;
+            font-size: 13.33px;
+            outline: none;
+        }
+
+        .add-to-basket {
+            padding: 12px 30px;
+            background: #c24c4c;
+            color: white;
+            border: 2px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13.33px;
+            transition: background 0.3s;
+        }
+
+        .add-to-basket:hover {
+            background: #a83d3d;
+        }
+
+        .add-to-wishlist {
+            padding: 12px 24px;
+            background: white;
+            color: #1a1a1a;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13.33px;
+            transition: all 0.3s;
+        }
+
+        .add-to-wishlist:hover {
+            border-color: #c24c4c;
+            color: #c24c4c;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+        .reviews-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .review-card {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+
+        .review-date {
+            color: #8d8d8d;
+            font-size: 14px;
+        }
+
+        .review-stars {
+            color: #F5B301;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            color: #8d8d8d;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #8d8d8d;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #8d8d8d;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 1001;
+            border-left: 4px solid #c24c4c;
+        }
+
+        .notification.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="f">F</span><span class="num">17</span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#clothing">Clothing</a>
+                <a href="mens.html">Men</a>
+                <a href="womens.html">Women</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#contact">Contact</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="basket.html">Basket</a>
+            </nav>
+            <div class="header-icons">
+                <a href="profile.html" class="icon-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="basket.html" class="icon-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="basket-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="product-container">
+        <!-- Product Images -->
+        <div class="product-images">
+            <div class="main-image">
+                <img id="mainImage" src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=800&fit=crop" alt="Modern Oversized Shirt">
+            </div>
+            <div class="thumbnail-images">
+                <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=800&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=80&h=80&fit=crop" alt="Thumbnail 1">
+                </div>
+                <div class="thumbnail" data-image="https://images.unsplash.com/photo-1558689-bc411b?w=800&h=800&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1558689-bc411b?w=80&h=80&fit=crop" alt="Thumbnail 2">
+                </div>
+                <div class="thumbnail" data-image="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=800&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=80&h=80&fit=crop" alt="Thumbnail 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            <h1>Modern Oversized Shirt</h1>
+            <p class="vendor">Vendor: F17</p>
+            <p class="price">$89.00</p>
+            
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <span class="review-count">(24 reviews)</span>
+            </div>
+
+            <p class="description">A timeless piece designed for comfort and style. Made from premium cotton, this shirt features dropped shoulders and a relaxed fit.</p>
+
+            <div class="size-section">
+                <label>Size</label>
+                <div class="size-options">
+                    <button class="size-option" data-size="S">S</button>
+                    <button class="size-option active" data-size="M">M</button>
+                    <button class="size-option" data-size="L">L</button>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <div class="qty-control">
+                    <button class="qty-btn" id="decreaseQty">-</button>
+                    <input type="text" class="qty-input" id="qtyInput" value="1" readonly>
+                    <button class="qty-btn" id="increaseQty">+</button>
+                </div>
+                <button class="add-to-basket" id="addToBasket">Add to Basket</button>
+                <button class="add-to-wishlist" id="addToWishlist">Add to Wishlist</button>
+            </div>
+
+            <div class="reviews-section">
+                <h2>Customer Reviews</h2>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Anna</span>
+                        <span class="review-date">- 5 days ago</span>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Great fabric, perfect fit.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Mark</span>
+                        <span class="review-date">- 3 weeks ago</span>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">Comfortable and looks great.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p id="notificationMessage"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About F17</h3>
+                    <p>Modern clothing designed for timeless style and sustainable practices.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <a href="womens.html">Women's Collection</a>
+                    <a href="mens.html">Men's Collection</a>
+                    <a href="#accessories">Accessories</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="#shipping">Shipping Policy</a>
+                    <a href="#returns">Returns</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 F17. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Thumbnail image switching
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.getElementById('mainImage');
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                thumbnails.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                mainImage.src = this.dataset.image;
+            });
+        });
+
+        // Size selection
+        const sizeOptions = document.querySelectorAll('.size-option');
+        let selectedSize = 'M';
+
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                sizeOptions.forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+                selectedSize = this.dataset.size;
+            });
+        });
+
+        // Quantity controls
+        const qtyInput = document.getElementById('qtyInput');
+        const decreaseBtn = document.getElementById('decreaseQty');
+        const increaseBtn = document.getElementById('increaseQty');
+
+        decreaseBtn.addEventListener('click', function() {
+            let qty = parseInt(qtyInput.value);
+            if (qty > 1) {
+                qtyInput.value = qty - 1;
+            }
+        });
+
+        increaseBtn.addEventListener('click', function() {
+            let qty = parseInt(qtyInput.value);
+            if (qty < 99) {
+                qtyInput.value = qty + 1;
+            }
+        });
+
+        // Add to basket
+        const addToBasketBtn = document.getElementById('addToBasket');
+        addToBasketBtn.addEventListener('click', function() {
+            const qty = parseInt(qtyInput.value);
+            
+            // Get existing basket from localStorage
+            let basket = JSON.parse(localStorage.getItem('f17Basket')) || [];
+            
+            // Add new item
+            const product = {
+                id: 'oversized-shirt',
+                name: 'Modern Oversized Shirt',
+                price: 89.00,
+                size: selectedSize,
+                quantity: qty,
+                image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=80&h=80&fit=crop'
+            };
+
+            // Check if item already exists
+            const existingIndex = basket.findIndex(item => 
+                item.id === product.id && item.size === product.size
+            );
+
+            if (existingIndex > -1) {
+                basket[existingIndex].quantity += qty;
+            } else {
+                basket.push(product);
+            }
+
+            localStorage.setItem('f17Basket', JSON.stringify(basket));
+            
+            // Update basket count
+            updateBasketCount();
+            
+            // Show notification
+            showNotification('Item added to basket!');
+        });
+
+        // Add to wishlist
+        const addToWishlistBtn = document.getElementById('addToWishlist');
+        addToWishlistBtn.addEventListener('click', function() {
+            let wishlist = JSON.parse(localStorage.getItem('f17Wishlist')) || [];
+            
+            const product = {
+                id: 'oversized-shirt',
+                name: 'Modern Oversized Shirt',
+                price: 89.00,
+                image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop'
+            };
+
+            // Check if already in wishlist
+            const exists = wishlist.some(item => item.id === product.id);
+            
+            if (!exists) {
+                wishlist.push(product);
+                localStorage.setItem('f17Wishlist', JSON.stringify(wishlist));
+                showNotification('Item added to wishlist!');
+            } else {
+                showNotification('Item already in wishlist!');
+            }
+        });
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notificationMessage');
+            
+            notificationMessage.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Update basket count
+        function updateBasketCount() {
+            const basket = JSON.parse(localStorage.getItem('f17Basket')) || [];
+            const totalItems = basket.reduce((sum, item) => sum + item.quantity, 0);
+            const basketCount = document.querySelector('.basket-count');
+            if (basketCount) {
+                basketCount.textContent = totalItems;
+            }
+        }
+
+        // Initialize basket count on load
+        updateBasketCount();
+    </script>
+</body>
+</html>

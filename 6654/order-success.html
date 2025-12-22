@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - F17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .logo .f {
+            color: #1a1a1a;
+        }
+
+        .logo .num {
+            color: #c24c4c;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c24c4c;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-link {
+            color: #1a1a1a;
+            font-size: 16px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .icon-link:hover {
+            color: #c24c4c;
+        }
+
+        .basket-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #c24c4c;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Container */
+        .success-container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+            min-height: calc(100vh - 400px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            color: #8d8d8d;
+            font-size: 16px;
+        }
+
+        /* Success Card */
+        .success-card {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            padding: 40px 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .success-icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .success-icon i {
+            font-size: 64px;
+            color: #4CAF50;
+        }
+
+        .order-number {
+            font-size: 18.72px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .order-date {
+            font-size: 16px;
+            color: #8d8d8d;
+            margin-bottom: 30px;
+        }
+
+        .order-section {
+            margin-bottom: 30px;
+        }
+
+        .order-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .order-section p {
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .summary-text {
+            font-size: 16px;
+            color: #8d8d8d;
+        }
+
+        .continue-shopping-btn {
+            width: 100%;
+            padding: 12px;
+            background: #c24c4c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .continue-shopping-btn:hover {
+            background: #a83d3d;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #8d8d8d;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #8d8d8d;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .success-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="f">F</span><span class="num">17</span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#clothing">Clothing</a>
+                <a href="mens.html">Men</a>
+                <a href="womens.html">Women</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#contact">Contact</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="basket.html">Basket</a>
+            </nav>
+            <div class="header-icons">
+                <a href="profile.html" class="icon-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="basket.html" class="icon-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="basket-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="success-container">
+        <div class="section-title">
+            <h1>Thank you — your order is confirmed</h1>
+            <p>We've emailed your order confirmation and will update you when it ships.</p>
+        </div>
+
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <div class="order-number" id="orderNumber">Order #F17-00123</div>
+            <div class="order-date" id="orderDate">Placed on: Dec 13, 2025</div>
+
+            <div class="order-section">
+                <h2>Shipping to</h2>
+                <p id="customerName">John Doe</p>
+                <p id="customerAddress1">123 Fashion Ave</p>
+                <p id="customerAddress2">San Francisco, CA</p>
+            </div>
+
+            <div class="order-section">
+                <h2>Summary</h2>
+                <p class="summary-text" id="orderSummary">2 items • Total: $267.99</p>
+            </div>
+
+            <a href="index.html" class="continue-shopping-btn">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About F17</h3>
+                    <p>Modern clothing designed for timeless style and sustainable practices.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <a href="womens.html">Women's Collection</a>
+                    <a href="mens.html">Men's Collection</a>
+                    <a href="#accessories">Accessories</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="#shipping">Shipping Policy</a>
+                    <a href="#returns">Returns</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 F17. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Generate random order number
+        function generateOrderNumber() {
+            const randomNum = Math.floor(Math.random() * 90000) + 10000;
+            return `F17-${randomNum}`;
+        }
+
+        // Get current date formatted
+        function getCurrentDate() {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date().toLocaleDateString('en-US', options);
+        }
+
+        // Load order data from localStorage or use defaults
+        function loadOrderData() {
+            // Try to get order data from localStorage
+            const orderData = JSON.parse(localStorage.getItem('lastOrder')) || null;
+            
+            if (orderData) {
+                // Use saved order data
+                document.getElementById('orderNumber').textContent = `Order #${orderData.orderNumber}`;
+                document.getElementById('orderDate').textContent = `Placed on: ${orderData.orderDate}`;
+                document.getElementById('customerName').textContent = orderData.customerName || 'John Doe';
+                document.getElementById('customerAddress1').textContent = orderData.address || '123 Fashion Ave';
+                document.getElementById('customerAddress2').textContent = orderData.city || 'San Francisco, CA';
+                document.getElementById('orderSummary').textContent = `${orderData.itemCount} items • Total: $${orderData.total}`;
+            } else {
+                // Use default/demo data
+                const orderNumber = generateOrderNumber();
+                const orderDate = getCurrentDate();
+                
+                document.getElementById('orderNumber').textContent = `Order #${orderNumber}`;
+                document.getElementById('orderDate').textContent = `Placed on: ${orderDate}`;
+            }
+        }
+
+        // Update basket count
+        function updateBasketCount() {
+            const basket = JSON.parse(localStorage.getItem('f17Basket')) || [];
+            const totalItems = basket.reduce((sum, item) => sum + item.quantity, 0);
+            const basketCount = document.querySelector('.basket-count');
+            if (basketCount) {
+                basketCount.textContent = totalItems;
+            }
+        }
+
+        // Initialize page
+        loadOrderData();
+        updateBasketCount();
+
+        // Clear the lastOrder data after displaying (optional)
+        // localStorage.removeItem('lastOrder');
+    </script>
+</body>
+</html>

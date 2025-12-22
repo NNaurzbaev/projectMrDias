@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - F17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .logo .f {
+            color: #1a1a1a;
+        }
+
+        .logo .num {
+            color: #c24c4c;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c24c4c;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-link {
+            color: #1a1a1a;
+            font-size: 16px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .icon-link:hover {
+            color: #c24c4c;
+        }
+
+        .basket-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #c24c4c;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Container */
+        .faq-container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+            min-height: calc(100vh - 400px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            color: #8d8d8d;
+            font-size: 16px;
+        }
+
+        /* FAQ Items */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #e0e0e0;
+        }
+
+        .faq-question {
+            padding: 30px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .faq-icon {
+            font-size: 14px;
+            color: #8d8d8d;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 30px 20px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            color: #8d8d8d;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #8d8d8d;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #8d8d8d;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .faq-question {
+                padding: 20px 15px;
+            }
+
+            .faq-question h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="f">F</span><span class="num">17</span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#clothing">Clothing</a>
+                <a href="mens.html">Men</a>
+                <a href="womens.html">Women</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#contact">Contact</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="basket.html">Basket</a>
+            </nav>
+            <div class="header-icons">
+                <a href="profile.html" class="icon-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="basket.html" class="icon-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="basket-count" id="basketCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="faq-container">
+        <div class="section-title">
+            <h1>Frequently Asked Questions</h1>
+            <p>Answers about shipping, returns, and orders.</p>
+        </div>
+
+        <div class="faq-list">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is your return policy?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept returns within 30 days of purchase for unworn items with original tags attached. Items must be in their original condition. Refunds will be processed to your original payment method within 5-7 business days after we receive your return.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does shipping take?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard shipping typically takes 5-7 business days. Express shipping (2-3 business days) is available at checkout for an additional fee. You will receive a tracking number via email once your order ships.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you ship internationally?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we ship to select countries worldwide. International shipping times vary by location but typically take 10-14 business days. Additional customs fees and duties may apply depending on your country's regulations.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I track my order?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Once your order ships, you'll receive an email with a tracking number. You can also view your order status by logging into your account and visiting the Orders page. Tracking information may take 24-48 hours to update after shipping.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What payment methods do you accept?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, and Google Pay. All transactions are securely processed and encrypted for your safety.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I find my size?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Each product page includes a detailed size guide. We recommend measuring yourself and comparing to our size chart. If you're between sizes, we suggest sizing up for a more relaxed fit. Contact our customer service team if you need personalized sizing assistance.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I change or cancel my order?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Orders can be modified or cancelled within 1 hour of placement. After this time, orders are processed for shipping and cannot be changed. Please contact customer service immediately if you need to make changes to a recent order.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer gift wrapping?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer complimentary gift wrapping for all orders. Simply select the gift wrapping option at checkout and include a personalized message. Your order will arrive in our signature F17 gift packaging.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 9 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can I contact customer support?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our customer support team is available Monday-Friday, 9am-6pm EST. You can reach us via email at support@f17.com or call us at 1-800-F17-SHOP. We typically respond to emails within 24 hours.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 10 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are your products sustainable?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sustainability is at the core of F17. We use organic and recycled materials whenever possible, partner with ethical manufacturers, and minimize waste in our production process. Learn more about our sustainability practices on our About page.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About F17</h3>
+                    <p>Modern clothing designed for timeless style and sustainable practices.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <a href="womens.html">Women's Collection</a>
+                    <a href="mens.html">Men's Collection</a>
+                    <a href="#accessories">Accessories</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <a href="#shipping">Shipping Policy</a>
+                    <a href="#returns">Returns</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 F17. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Toggle active class
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Update basket count
+        function updateBasketCount() {
+            const basket = JSON.parse(localStorage.getItem('f17Basket')) || [];
+            const totalItems = basket.reduce((sum, item) => sum + item.quantity, 0);
+            const basketCount = document.getElementById('basketCount');
+            if (basketCount) {
+                basketCount.textContent = totalItems;
+            }
+        }
+
+        // Initialize
+        updateBasketCount();
+    </script>
+</body>
+</html>
